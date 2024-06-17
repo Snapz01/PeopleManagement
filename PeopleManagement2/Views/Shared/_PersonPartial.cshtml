@@ -1,0 +1,16 @@
+﻿@model PeopleManagement2.Models.Person
+
+<div class="person-item border p-3 mb-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h4>@Model.Name</h4>
+            <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+            <p><strong>City:</strong> @Model.CityName</p>
+        </div>
+        <div class="col-md-4 text-right">
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info btn-sm">Details</a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+    </div>
+</div>

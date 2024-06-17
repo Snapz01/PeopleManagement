@@ -9,36 +9,17 @@
 <form asp-action="Index" method="get">
     <p>
         Search: <input type="text" name="searchString" value="@Model.SearchString" />
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" class="btn btn-primary" />
     </p>
 </form>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
 </p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>City</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var person in Model.People)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => person.Name)</td>
-                <td>@Html.DisplayFor(modelItem => person.PhoneNumber)</td>
-                <td>@Html.DisplayFor(modelItem => person.CityName)</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@person.Id">Details</a> |
-                    <a asp-action="Edit" asp-route-id="@person.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@person.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="people-list">
+    @foreach (var person in Model.People)
+    {
+        <partial name="_PersonPartial" model="person" />
+    }
+</div>
